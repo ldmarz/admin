@@ -6,5 +6,5 @@ function responseMiddleware(req, res) {
   var payload = res.payload || {};
 
   const status = payload.status || HttpStatus.OK;
-  res.status(status).json(payload);
+  res.status(status).json({data: payload});
 }

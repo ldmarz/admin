@@ -1,0 +1,9 @@
+  <ui-select multiple ng-model="ctrl.multipleDemo.removeSelectIsFalse" theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false" title="Choose a person">
+    <ui-select-match placeholder="Select consultors...">{{$item.no_usuario}}</ui-select-match>
+    <ui-select-choices repeat="consultor in $ctrl.consultors |  props: {no_usuario: $select.search} ">
+      <div ng-bind-html="consultor.no_usuario | highlight: $select.search"></div>
+      <small>
+        {{consultor.no_usuario | highlight: $select.search }}
+      </small>
+    </ui-select-choices>
+  </ui-select>
