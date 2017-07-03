@@ -2,7 +2,8 @@ import controller from './multi-select.controller';
 
 export const MultiSelect = {
   bindings: {
-    consultors: '<'
+    consultors: '<',
+    selected: '='
   },
   controller,
   template: require('./multi-select.html')

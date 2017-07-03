@@ -11,6 +11,13 @@ class ConsultorModel {
       })
       .whereIn('co_tipo_usuario', [0, 1, 2]);
   }
+
+  getSalarios(consultors) {
+    return db
+      .select('co_usuario', 'brut_salario')
+      .from('cao_salario')
+      .whereIn('co_usuario', consultors);
+  }
 };
 
 module.exports = new ConsultorModel();

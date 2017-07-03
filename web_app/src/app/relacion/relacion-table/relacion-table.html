@@ -1,0 +1,60 @@
+<div ng-repeat="(key, consultor) in $ctrl.relacion">
+  <h3>
+    {{key}}
+  </h3>
+  <table class="table table-hover ">
+    <tbody >
+      <tr>
+        <td class="headers">
+          Período
+        </td>
+        <td class="headers">
+          Receita Líquida
+        </td>
+        <td class="headers">
+          Custo Fixo
+        </td>
+        <td class="headers">
+          Comissão
+        </td>
+        <td class="headers">
+          Lucro
+        </td>
+      </tr>
+      <tr ng-repeat="(fecha, value) in consultor.relacion track by $index">
+        <td>
+          {{fecha}}
+        </td>
+        <td ng-init="$ctrl.sumValues('acumReceita', key, value.receitaLiquida)">
+          {{ value.receitaLiquida.toFixed(2) }}
+        </td>
+        <td ng-init="$ctrl.sumValues('acumSalario', key, consultor.brut_salario)">
+          {{consultor.brut_salario.toFixed(2)}}
+        </td>
+        <td ng-init="$ctrl.sumValues('acumComissao', key, value.Comissao)">
+          {{value.Comissao.toFixed(2)}}
+        </td>
+        <td ng-init="$ctrl.sumValues('acumLucro', key, (value.receitaLiquida - (consultor.brut_salario + value.Comissao)))">
+          {{ (value.receitaLiquida - (consultor.brut_salario + value.Comissao)).toFixed(2) }}
+        </td>
+      </tr>
+      <tr>
+        <td class="footer">
+          SALDO
+        </td>
+        <td class="footer">
+          {{$ctrl.acumReceita[key].toFixed(2)}}
+        </td>
+        <td class="footer">
+          {{$ctrl.acumSalario[key].toFixed(2)}}
+        </td>
+        <td class="footer">
+          {{$ctrl.acumComissao[key].toFixed(2)}}
+        </td>
+        <td class="footer">
+          {{$ctrl.acumLucro[key].toFixed(2)}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

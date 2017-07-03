@@ -6,6 +6,11 @@ export default class IndexController {
     this.IndexService = IndexService;
     this.consultors = [];
     this.getConsultors();
+    this.selected = [];
+
+    var date = new Date();
+    this.date_beg = new Date(date.getFullYear(), date.getMonth(), 1);
+    this.date_end = date;
   }
 
   getConsultors() {

@@ -1,7 +1,28 @@
 <nav-bar></nav-bar>
-
+<div class="row">
+  <div class="col-md-offset-2 col-md-2 col-xs-5 ">
+    <input type="date" ng-model="$ctrl.date_beg" class="form-control">
+  </div>
+  <div class="col-md-2 col-xs-5">
+    <input type="date" ng-model="$ctrl.date_end" class="form-control">
+  </div>
+</div>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <multi-select consultors="$ctrl.consultors"></multi-select>
+    <multi-select consultors="$ctrl.consultors" selected="$ctrl.selected"></multi-select>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+    <div class="btn-group btn-group-justified btn-group-raised">
+      <a href="javascript:void(0)" ui-sref="index.relacion" ui-sref-opts="{reload:'index.relacion'}" class="btn ">Relación</a>
+      <a href="javascript:void(0)" class="btn "> Grafico </a>
+      <a href="javascript:void(0)" class="btn "> Pizza </a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-9 col-md-offset-1" ui-view="contentPage">
+    
   </div>
 </div>

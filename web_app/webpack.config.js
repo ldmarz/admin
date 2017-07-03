@@ -16,8 +16,8 @@ var API_URL = '';
 var backendProxyTarget = '';
 
 if (isProd) {
-  API_URL = '/api';
-  backendProxyTarget = '';
+  API_URL = 'http://localhost:3000';
+  backendProxyTarget = 'http://localhost:3000';
 } else {
   // For development i was using a proxy with webpack to avoid CORS
   API_URL = '/api';
@@ -54,7 +54,7 @@ module.exports = function makeWebpackConfig() {
 
     // Output path from the view of the page
     // Uses webpack-dev-server in development
-    publicPath: isProd ? '/' : 'http://172.18.0.1:8080/',
+    publicPath: isProd ? '/' : 'http://localhost:8080/',
 
     // Filename for entry points
     // Only adds hash in build mode
@@ -205,6 +205,11 @@ module.exports = function makeWebpackConfig() {
           }
         ],
         'mobile': true,
+        scripts: [
+          {
+            src: 'https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js'
+          }
+        ],
         links: [
           {
             href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
@@ -216,7 +221,7 @@ module.exports = function makeWebpackConfig() {
             rel: 'stylesheet'
           },
           {
-            href: 'https://fonts.googleapis.com/css?family=Lora',
+            href: 'https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css',
             type: 'text/css',
             rel: 'stylesheet'
           }
@@ -235,11 +240,11 @@ module.exports = function makeWebpackConfig() {
     config.plugins.push(
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
       // Only emit files when there are no errors
-      new webpack.NoErrorsPlugin(),
+      // new webpack.NoErrorsPlugin(),
 
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode
-      new webpack.optimize.UglifyJsPlugin(),
+      // new webpack.optimize.UglifyJsPlugin(),
 
       // Copy assets from the public folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin
@@ -257,7 +262,7 @@ module.exports = function makeWebpackConfig() {
   config.devServer = {
     contentBase: './src/public',
     stats: 'minimal',
-    host: '172.18.0.1',
+    host: 'localhost',
     port: '8080',
     proxy: {
       '/api': {

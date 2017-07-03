@@ -1,3 +1,25 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~ui-select/dist/select.min.css';
 @import '~bootstrap-material-design/dist/css/bootstrap-material-design.min.css';
+
+table {
+  background: #fff;
+  border-radius: 5px;
+
+  
+  td {
+    font-size: 12px;
+    color: rgba(0,0,0,0.86);
+
+    &.headers {
+      font-size: 13px;
+      color: rgba(0,0,0,0.54);
+    }
+
+    &.footer {
+      font-size: 14px;
+      color: rgba(0,0,0,1);
+    }
+  }
+  
+}

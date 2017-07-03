@@ -19,9 +19,10 @@ import '../public/style/app.scss';
 // Importing app modules
 import root from './root';
 import index from './index';
+import relacion from './relacion';
 
 angular
-  .module(MODULE_NAME, [uirouter, index, root, ngAnimate, angularLoadingBar, uiSelect, ngSanitize])
+  .module(MODULE_NAME, [uirouter, index, root, ngAnimate, angularLoadingBar, uiSelect, ngSanitize, relacion])
   .config(routing)
   .run(run);
 
