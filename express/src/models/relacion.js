@@ -11,10 +11,9 @@ class RelacionModel {
         this.on('cao_os.co_os', '=', 'cao_fatura.co_os')
           .andOn('cao_fatura.data_emissao', '>=', db.raw('?', [dateBeg]))
           .andOn('cao_fatura.data_emissao', '<=', db.raw('?', [dateEnd]));
-        
-          // .whereBetween(dateBeg, dateEnd);
       }, [dateBeg, dateEnd])
-      .whereIn('co_usuario', consultors);
+      .whereIn('co_usuario', consultors)
+      .orderBy('data_emissao');
   }
 
   getNameMonth(number) {

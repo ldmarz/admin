@@ -22,6 +22,7 @@
     "bodymovin": "^4.6.8",
     "bootstrap-material-design": "^0.5.10",
     "flatpickr": "^2.6.1",
+    "highcharts-ng": "^1.1.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "ng-annotate": "^1.2.2",
